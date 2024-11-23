@@ -1,0 +1,245 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Shop Homepage - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <style>
+            /* Basic Reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+      
+            /* Chat Button */
+            .chat-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #6C4E31;
+                color: white;
+                border: none;
+                padding: 15px;
+                border-radius: 50%;
+                font-size: 20px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 100;
+            }
+      
+            .chat-button:hover {
+                background-color: #B59F78;
+            }
+      
+            /* Chat Window */
+            .chat-window {
+                position: fixed;
+                bottom: 80px;
+                right: 20px;
+                width: 300px;
+                height: 400px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                display: none;
+                flex-direction: column;
+                overflow: hidden;
+                z-index: 99;
+            }
+      
+            .chat-header {
+                background-color: #6C4E31;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                text-align: center;
+            }
+      
+            .chat-content {
+                flex-grow: 1;
+                padding: 10px;
+                overflow-y: auto;
+                max-height: 300px;
+                font-family: Arial, sans-serif;
+            }
+      
+            .chatbox {
+                margin-bottom: 10px;
+            }
+      
+            .user-message, .bot-message {
+                margin: 5px 0;
+            }
+      
+            .user-message {
+                text-align: right;
+                color: #333;
+            }
+      
+            .bot-message {
+                text-align: left;
+                color: #333;
+            }
+      
+            .chat-input-container {
+                display: flex;
+                border-top: 1px solid #ddd;
+                padding: 10px;
+            }
+      
+            .chat-input-container input {
+                flex-grow: 1;
+                padding: 10px;
+                border: none;
+                border-radius: 20px;
+                font-size: 14px;
+            }
+      
+            .chat-input-container button {
+                background-color: #6C4E31;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 20px;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+      
+            .chat-input-container button:hover {
+                background-color: #B59F78;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{%url 'home'%}">
+                    <img id="logo" src="{% static 'images/logo1.png'%}" alt="picture" >
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <!--categories-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Categories</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Categories</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Bracelet</a></li>
+                                <li><a class="dropdown-item" href="#!">Earring</a></li>
+                                <li><a class="dropdown-item" href="#!">Necklace</a></li>
+                                <li><a class="dropdown-item" href="#!">Ring</a></li>
+                                <li><a class="dropdown-item" href="#!">Sunglasses</a></li>
+                                <li><a class="dropdown-item" href="#!">Watch</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" style="color: white;" href="#!">AboutUs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" style="color: white;" href="#!">ContactUs</a>
+                        </li>
+                    </ul>
+                    <form class="custom-search-form">
+                        <input class="form-control mr-sm-2 custom-search-input" type="search" placeholder="Search" aria-label="Search">
+                        <button class="custom-search-button" type="submit">Search</button>
+                    </form>
+                    <form class="d-flex">
+                        <button class="custom-login-button" type="submit">Login/Register</button>
+                    </form>
+                    <form >
+                        <button class="custom-cart-button" type="submit">
+                            <i class="bi-cart-fill me-1" ></i>
+                            Cart
+                            <span class="badge ms-1 rounded-pill" style="background-color: white; color: black;">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container">
+                    <div id="slider">
+                        <figure>
+                            <img src="{% static 'images/1.jpg' %}" alt="Image 1">
+                            <img src="{% static 'images/2.jpg' %}" alt="Image 2">
+                            <img src="{% static 'images/3.jpg' %}" alt="Image 3">
+                            <img src="{% static 'images/4.jpg' %}" alt="Image 4">
+                            <img src="{% static 'images/1.jpg' %}" alt="Image 5"> <!-- Duplicate of the first image for smooth looping -->
+                        </figure>
+                        <div class="overlay">
+                            <h5>Glimmer Accessories</h5>
+                            <h1>Shine with Elegance</h1>
+                            <h1>Radiate with Confidence</h1>
+                            <button onclick="location.href=''">Shop Now</button>
+                        </div>
+            </div>
+        </header>
+       
+        <div class="container">
+            {%block content%}
+            
+            {%endblock content%}
+        </div>
+        
+        <!--Chatbot-->
+    <!-- Chat Window -->
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">Chat with Us!</div>
+        <div id="chatContent" class="chat-content">
+            <div id="chatbox">
+              Hi i am GleamBot, here to assist you in every way possible!
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="userInput" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+  
+    <!-- Chat Button -->
+    <button class="chat-button" onclick="toggleChatWindow()">💬</button>
+
+    
+        <!-- Footer-->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-links">
+                    <nav>
+                        <ul class="footer-nav">
+                            <li><a href="/terms">Terms & Conditions</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                            <li><a href="/contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+        
+                    <div class="footer-copy">
+                      <p>&copy; 2024 Accessories. All Rights Reserved.</p>
+                    </div>
+                </div>  
+            </div>
+          </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{%static 'js/scripts.js' %}"></script>
+    </body>
+</html>

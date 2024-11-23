@@ -1,0 +1,289 @@
+{%extends 'main.html' %}
+{%load static%}
+{%block content%}
+
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden; /* Prevent horizontal scrolling */
+            }
+    
+            /* Main Slider Container */
+            #slider {
+                position: relative;
+                width: 90vw; /* Fullscreen width */
+                height: 70vh;
+                overflow: hidden;
+            }
+    
+            /* Slider Animation */
+            #slider figure {
+                display: flex;
+                position: absolute;
+                width: 500%; /* For multiple images */
+                margin: 0;
+                left: 0;
+                top: 0;
+                animation: sliderAnimation 15s infinite;
+            }
+    
+            #slider figure img {
+                width: 90vw; /* Fullscreen width for each image */
+                height: 70vh;
+                object-fit: cover; /* Ensures image fits nicely */
+            }
+    
+            /* Keyframe for Sliding Animation */
+            @keyframes sliderAnimation {
+                0% { left: 0; }
+                20% { left: 0; }
+                25% { left: -100%; }
+                45% { left: -100%; }
+                50% { left: -200%; }
+                70% { left: -200%; }
+                75% { left: -300%; }
+                95% { left: -300%; }
+                100% { left: -400%; }
+            }
+    
+            /* Text Overlay for Each Slide */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0); /* Slight dark overlay */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+    
+            .overlay h1 {
+                font-size: 3rem;
+                margin-bottom: 10px;
+                color: white;
+            }
+    
+            .overlay h5 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: white;
+            }
+    
+            .overlay button {
+                background-color: #AB886D;
+                color: white;
+                border: 1px solid #54473F;
+                margin: 0 10px;
+                padding: 8px 16px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+    
+            .overlay button:hover {
+                background-color: #54473F;
+                color: white;
+            }
+        </style>
+    </head>
+</html>
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="thumbnail" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">Fancy Product</h5>
+                            <hr>
+                            <h4 style="display: inline-block;">Rs.1500</h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button data-product="" data-action="add" class="custom-cart-button">Add to Cart</button>
+                            <a class="custom-cart-button" href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+{%endblock content%}
