@@ -16,14 +16,14 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">Categories</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Categories</a></li>
+                        <li><a class="dropdown-item" href="{%url 'home'%}">All Categories</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Bracelet</a></li>
-                        <li><a class="dropdown-item" href="#!">Earring</a></li>
-                        <li><a class="dropdown-item" href="#!">Necklace</a></li>
-                        <li><a class="dropdown-item" href="#!">Ring</a></li>
-                        <li><a class="dropdown-item" href="#!">Sunglasses</a></li>
-                        <li><a class="dropdown-item" href="#!">Watch</a></li>
+                        <li><a class="dropdown-item" href="{%url 'category' 'Bracelet'%}">Bracelet</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'Earring'%}">Earring</a></li>
+                        <li><a class="dropdown-item" href="{%url 'category' 'Necklace'%}">Necklace</a></li>
+                        <li><a class="dropdown-item" href="{%url 'category' 'Ring'%}">Ring</a></li>
+                        <li><a class="dropdown-item" href="{%url 'category' 'Sunglasses'%}">Sunglasses</a></li>
+                        <li><a class="dropdown-item" href="{%url 'category' 'Watch'%}">Watch</a></li>
                         
                     </ul>
                 </li>
@@ -52,11 +52,11 @@
 
 
             <form >
-                <button class="custom-cart-button" type="submit">
+                <a href="{%url 'cart_summary'%}" class="custom-cart-button">
                     <i class="bi-cart-fill me-1" ></i>
                     Cart
                     <span class="badge ms-1 rounded-pill" style="background-color: white; color: black;">0</span>
-                </button>
+                </a>   
             </form>
         </div>
     </div>

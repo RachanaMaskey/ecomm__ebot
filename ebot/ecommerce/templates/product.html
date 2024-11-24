@@ -1,0 +1,77 @@
+{%extends 'main.html' %}
+{%load static%}
+{%block content%}
+
+
+<div class="container" style="margin-bottom: 40px;">
+  <div class="card mb-3 mt-5">
+      <div class="row g-0">
+            <div class="col-md-5">
+              <img src="{{product.image.url}}" alt="hi" style="width:555px;height: 555px;">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <center>
+                  <h5 class="card-title title__line--6">{{product.name}}</h5>
+                 <div class="card-body">
+                    <p class="card-text justified">{{product.description}}</p>
+                 </div>
+                 <br>
+
+                  {%if product.is_sale%}
+                    <div class="text-center">
+                      <h6><strike>Rs {{product.price}}</strike></h6>
+                      <h6>Rs {{product.sale_price}}</h6>
+                      
+                    </div>
+                  {%else%}
+                      Rs {{product.price}}
+                      <br>
+                      
+
+                  {%endif%}
+
+                  In: {{product.category}}
+                  <br>
+                  <br>
+
+                  <button type="button" value="{{product.id}}" id="add-cart" class="custom-cart-button">Add to Cart</button>
+                  <a class="custom-cart-button" href="{%url 'home' %}">Home</a>
+                </center>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div> 
+</div>
+
+
+<script>
+  
+ //check if button is pressed
+ $(document).on('click','#add-cart',function(e){
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:"{%url 'cart_add'%}",
+        data:{
+            product_id:$('#add-cart').val(),
+            csrfmiddlewaretoken:'{{csrf_token}}',
+            action:'post'
+        },
+
+        success:function(json){
+          console.log(json)
+        },
+
+        error:function(xhr,errmsg,err){
+
+        }
+
+    });
+
+ })
+
+</script>
+
+{%endblock content%}
