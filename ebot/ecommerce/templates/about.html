@@ -1,0 +1,147 @@
+{%extends 'main.html' %}
+{%load static%}
+{%block content%}
+
+<html>
+    <header>
+        <style>
+             * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden; /* Prevent horizontal scrolling */
+            }
+    
+            /* Main Slider Container */
+            #slider {
+                position: relative;
+                width: 90vw; /* Fullscreen width */
+                height: 70vh;
+                overflow: hidden;
+            }
+    
+            /* Slider Animation */
+            #slider figure {
+                display: flex;
+                position: absolute;
+                width: 800%; /* For multiple images */
+                margin: 0;
+                left: 0;
+                top: 0;
+                animation: sliderAnimation 15s infinite;
+            }
+    
+            #slider figure img {
+                width: 90vw; /* Fullscreen width for each image */
+                height: 70vh;
+                object-fit: cover; /* Ensures image fits nicely */
+            }
+    
+            /* Text Overlay for Each Slide */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0); /* Slight dark overlay */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+    
+            .overlay h1 {
+                font-size: 3rem;
+                margin-bottom: 10px;
+                color: white;
+            }
+    
+            .overlay h5 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: white;
+            }
+    
+            .overlay button {
+                background-color: #AB886D;
+                color: white;
+                border: 1px solid #54473F;
+                margin: 0 10px;
+                padding: 8px 16px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+    
+            .overlay button:hover {
+                background-color: #54473F;
+                color: white;
+            }
+
+            .custom-aboutus{
+                width: 100%;
+                height: 530px;
+            }
+
+        </style>
+    </header>
+</html>
+
+
+<header class="py-5">
+    <div class="container">
+            <div id="slider" style="height: 250px;">
+                <figure>
+                    <img src="{% static 'images/4.jpg' %}" alt="Image 1">
+                </figure>
+                <div class="overlay">
+                    <h1>Home>AboutUs</h1>
+                </div>
+    </div>
+</header>
+
+
+<div class="container" style="margin-bottom: 40px;">
+    <div class="row"  style="margin-top: 20px;">
+        <div class="col-lg-6">
+            <div class="box-element" id="form-wrapper">
+                <img class="custom-aboutus" src="{%static 'images/about.jpg'%}" alt="logo">
+            </div>
+        </div>
+    
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="box-element" id="form-wrapper">
+                    <p><strong>About Us</strong></p>
+                    <hr>
+                    <p style="text-align: justify;">Welcome to Glimmer, where elegance meets individuality. We believe that accessories are more than just finishing touches— they’re expressions of who you are. Founded on the idea that everyone deserves to Shine with Elegance and Radiate with Confidence, we carefully curate a collection of accessories that empower you to embrace your unique style.
+                        
+                        <br>
+                        Whether you're adding a touch of sparkle to your daily ensemble or preparing for a special occasion, Glimmer is here to help you shine, one accessory at a time.</p>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="box-element" id="form-wrapper">
+                    <p><strong>Our Products</strong></p>
+                    <hr>
+                    <p style="text-align: justify;">At Glimmer, we believe that the right accessory can light up any look. Our curated collection is filled with pieces that add a touch of elegance, sparkle, and personality to your style. From delicate essentials to bold statement items, Glimmer offers accessories that fit every mood and occasion.
+        
+                        Our selection includes earrings, necklaces, bracelets, rings, and more—all chosen with quality and versatility in mind. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+{%endblock content%}

@@ -1,0 +1,156 @@
+{%extends 'main.html' %}
+{%load static%}
+{%block content%}
+
+<html>
+    <header>
+        <style>
+             * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            html, body {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden; /* Prevent horizontal scrolling */
+            }
+    
+            /* Main Slider Container */
+            #slider {
+                position: relative;
+                width: 90vw; /* Fullscreen width */
+                height: 70vh;
+                overflow: hidden;
+            }
+    
+            /* Slider Animation */
+            #slider figure {
+                display: flex;
+                position: absolute;
+                width: 800%; /* For multiple images */
+                margin: 0;
+                left: 0;
+                top: 0;
+                animation: sliderAnimation 15s infinite;
+            }
+    
+            #slider figure img {
+                width: 90vw; /* Fullscreen width for each image */
+                height: 70vh;
+                object-fit: cover; /* Ensures image fits nicely */
+            }
+    
+            /* Text Overlay for Each Slide */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0); /* Slight dark overlay */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-align: center;
+            }
+    
+            .overlay h1 {
+                font-size: 3rem;
+                margin-bottom: 10px;
+                color: white;
+            }
+    
+            .overlay h5 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: white;
+            }
+    
+            .overlay button {
+                background-color: #AB886D;
+                color: white;
+                border: 1px solid #54473F;
+                margin: 0 10px;
+                padding: 8px 16px;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+    
+            .overlay button:hover {
+                background-color: #54473F;
+                color: white;
+            }
+
+            .custom-aboutus{
+                width: 100%;
+                height: 530px;
+            }
+
+        </style>
+    </header>
+</html>
+
+
+<header class="py-5">
+    <div class="container">
+            <div id="slider" style="height: 250px;">
+                <figure>
+                    <img src="{% static 'images/4.jpg' %}" alt="Image 1">
+                </figure>
+                <div class="overlay">
+                    <h2>Home>Register</h2>
+                </div>
+    </div>
+</header>
+
+
+<div class="container" style="margin-bottom: 40px;">\
+    <h1 class="text-center">REGISTER</h1>
+    <div class="row"  style="margin-top: 20px;">
+        <div class="col-md-6 offset-md-3">
+            <form method="POST" action="{%url 'register' %}">
+                {% csrf_token %}
+
+                {{form.as_p}}
+
+                <button type="submit" class="custom-login-button">Register</button>
+
+                <!-- <form id="register-form" method="post">
+                    <div class="single-contact-form">
+                        <div class="contact-box name">
+                            <input type="text" name="name" id="name" placeholder="Your Name*" style="width:100%">
+                        </div>
+                        <span class="field_error" id="name_error"></span>
+                    </div>
+                    <div class="single-contact-form">
+                        <div class="contact-box name">
+                            <input type="text" name="email" id="email" placeholder="Your Email*" style="width:100%">
+                        </div>
+                        <span class="field_error" id="email_error"></span>
+                    </div>
+                    <div class="single-contact-form">
+                        <div class="contact-box name">
+                            <input type="text" name="mobile" id="mobile" placeholder="Your Mobile*" style="width:100%">
+                        </div>
+                        <span class="field_error" id="mobile_error"></span>
+                    </div>
+                    <div class="single-contact-form">
+                        <div class="contact-box name">
+                            <input type="password" name="password" id="password" placeholder="Your Password*" style="width:100%">
+                        </div>
+                        <span class="field_error" id="password_error"></span>
+                    </div>
+                    <br><br>
+                    <button type="submit" class="custom-login-button">Register</button>
+              </form> -->
+        </div>
+    
+    </div>
+</div>
+
+{%endblock content%}
